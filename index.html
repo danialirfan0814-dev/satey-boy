@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SATEY BOY — Template Banner Menegak</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#1C140F;
+    --charcoal-deep:#120B07;
+    --charcoal-mid:#2C2019;
+    --warm-brown:#8B6F47;
+    --light-brown:#A0826D;
+    --ember:#EA5A1B;
+    --chili:#A9210F;
+    --gold:#F0A93B;
+    --cream:#F5EAD4;
+    --cream-dim:#C9B594;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{
+    background:#EAE4D8;
+    font-family:'Work Sans',sans-serif;
+    display:flex;
+    justify-content:center;
+    padding:20px 14px;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .banner{
+    container-type: inline-size;
+    container-name: banner;
+    width:min(92vw, 430px);
+    background:
+      linear-gradient(135deg, #8B6F47 0%, #6B5638 25%, #1C140F 50%, #2C2019 75%, #8B6F47 100%),
+      radial-gradient(circle at 50% 30%, rgba(234,90,27,0.25), transparent 55%),
+      radial-gradient(circle at 85% 4%, rgba(240,169,59,0.18), transparent 40%),
+      radial-gradient(circle at 15% 70%, rgba(169,33,15,0.15), transparent 50%);
+    color:var(--cream);
+    box-shadow: 
+      0 18px 50px rgba(0,0,0,0.35),
+      0 0 40px rgba(139,111,71,0.25),
+      inset 0 1px 0 rgba(240,169,59,0.1),
+      inset 0 0 30px rgba(139,111,71,0.1);
+    overflow:hidden;
+    position:relative;
+    border:2px solid rgba(160,130,109,0.4);
+  }
+  
+  .stripe-top, .stripe-bottom{
+    height:1.3cqw;
+    background: repeating-linear-gradient(90deg, var(--ember), var(--ember) 3cqw, var(--gold) 3cqw, var(--gold) 6cqw);
+    box-shadow: 
+      0 2px 8px rgba(0,0,0,0.3),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding: 5cqw 5cqw 2cqw;
+    text-align:center;
+    overflow:hidden;
+    background: linear-gradient(180deg, rgba(139,111,71,0.1), transparent 60%);
+  }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(240,169,59,0.08), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(234,90,27,0.08), transparent 40%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .grate{
+    position:absolute;
+    inset:0;
+    opacity:0.06;
+    background-image: repeating-linear-gradient(115deg, var(--cream) 0px, var(--cream) 2px, transparent 2px, transparent 22px);
+    pointer-events:none;
+  }
+  
+  .eyebrow-line{
+    position:relative;
+    display:inline-flex;
+    align-items:center;
+    gap:2.4cqw;
+    color:var(--gold);
+    font-size:3.2cqw;
+    font-weight:600;
+    letter-spacing:0.02em;
+    margin-bottom:1cqw;
+    z-index: 2;
+    animation: float 3s ease-in-out infinite;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  .eyebrow-line svg{
+    width:4.8cqw;
+    height:4.8cqw;
+    flex:none;
+    filter: drop-shadow(0 2px 4px rgba(234,90,27,0.3));
+  }
+  
+  .wordmark{
+    position:relative;
+    font-family:'Luckiest Guy', cursive;
+    line-height:0.92;
+    transform:rotate(-3deg);
+    z-index: 2;
+  }
+  
+  .wordmark .line1{
+    display:block;
+    font-size:11cqw;
+    color:var(--cream);
+    -webkit-text-stroke: 0.5cqw var(--chili);
+    paint-order: stroke fill;
+    text-shadow: 
+      0.5cqw 0.5cqw 0 var(--charcoal-deep),
+      0 0 1.5cqw rgba(234,90,27,0.4),
+      0 0 3cqw rgba(139,111,71,0.2);
+    letter-spacing: -0.02em;
+  }
+  
+  .wordmark .line2{
+    display:block;
+    font-size:17cqw;
+    color:var(--gold);
+    -webkit-text-stroke: 0.6cqw var(--charcoal-deep);
+    paint-order: stroke fill;
+    text-shadow: 
+      0.7cqw 0.7cqw 0 var(--chili),
+      0 0 2cqw rgba(240,169,59,0.3),
+      0 0 4cqw rgba(139,111,71,0.15);
+    margin-top:-0.8cqw;
+    letter-spacing: -0.02em;
+  }
+  
+  .swoosh{
+    width:50cqw;
+    margin:1cqw auto 0;
+    display:block;
+    z-index: 2;
+    position: relative;
+    filter: drop-shadow(0 3px 6px rgba(234,90,27,0.2));
+  }
+  
+  .dish-wrap{
+    position:relative;
+    width:80cqw;
+    margin: 0.8cqw auto 0;
+    z-index: 2;
+    animation: float 4s ease-in-out infinite;
+  }
+  
+  .dish-wrap svg{
+    width:100%;
+    display:block;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+  }
+  
+  .dish-wrap img {
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+  }
+  
+  .tagline{
+    margin-top:1cqw;
+    font-size:3.8cqw;
+    font-weight:600;
+    color:var(--cream);
+    z-index: 2;
+    position: relative;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+
+  /* ---------- PROMO BADGE ---------- */
+  .badge-row{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:-5cqw;
+    z-index:3;
+    gap: 2cqw;
+  }
+  
+  .badge{
+    position:relative;
+    width:30cqw;
+    height:30cqw;
+    transform:rotate(-8deg);
+    animation: rotate-slow 20s linear infinite;
+  }
+  
+  .badge svg{
+    width:100%;
+    height:100%;
+    display:block;
+    filter: 
+      drop-shadow(0 0.6cqw 0 var(--chili))
+      drop-shadow(0 0 1.2cqw rgba(240,169,59,0.4))
+      drop-shadow(0 0 2cqw rgba(139,111,71,0.2));
+  }
+  
+  .badge-text{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    transform:rotate(-8deg);
+    text-align:center;
+    color:var(--charcoal-deep);
+    font-weight: 700;
+  }
+  
+  .badge-text .b-eyebrow{
+    font-size:2.8cqw;
+    font-weight:700;
+    letter-spacing:0.03em;
+    text-transform: uppercase;
+  }
+  
+  .badge-text .b-price{
+    font-family:'Luckiest Guy',cursive;
+    font-size:6.8cqw;
+    line-height:1;
+    margin:0.4cqw 0;
+    color: var(--ember);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .badge-text .b-sub{
+    font-size:2.4cqw;
+    font-weight:600;
+  }
+  
+  .placeholder{
+    border-bottom: 0.35cqw dashed rgba(28,20,15,0.55);
+  }
+  .footer .placeholder{ border-bottom-color: rgba(245,234,212,0.35); }
+
+  /* ---------- MENU ---------- */
+  .menu{
+    position:relative;
+    padding: 2.5cqw 6cqw 4cqw;
+    text-align:center;
+    background: linear-gradient(180deg, 
+      rgba(139,111,71,0.12) 0%, 
+      transparent 50%);
+  }
+  
+  .menu-heading{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:3cqw;
+    font-size:4cqw;
+    font-weight:700;
+    color:var(--gold);
+    margin-bottom:3cqw;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .menu-heading svg{
+    width:6.5cqw;
+    height:6.5cqw;
+    filter: drop-shadow(0 2px 4px rgba(234,90,27,0.3));
+  }
+  
+  .menu-list{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+  }
+  
+  .menu-item{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:2cqw 0;
+    border-bottom:1px dashed rgba(245,234,212,0.22);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .menu-item:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+  
+  .menu-item:last-child{border-bottom:none;}
+  
+  .menu-item-name{
+    display:flex;
+    align-items:center;
+    gap:2cqw;
+    font-size:3.8cqw;
+    font-weight:600;
+    text-align:left;
+    color: var(--cream);
+  }
+  
+  .menu-item-name svg{
+    width:6cqw;
+    height:6cqw;
+    flex:none;
+    filter: drop-shadow(0 2px 4px rgba(234,90,27,0.2));
+  }
+  
+  .menu-item-price{
+    font-size:3.8cqw;
+    font-weight:700;
+    color:var(--gold);
+    white-space:nowrap;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer{
+    position:relative;
+    background:
+      linear-gradient(135deg, 
+        rgba(139,111,71,0.15) 0%, 
+        var(--charcoal-deep) 50%, 
+        var(--charcoal-mid) 100%);
+    padding: 4cqw 6cqw 2cqw;
+    border-top: 1px solid rgba(160,130,109,0.3);
+  }
+  
+  .footer-name{
+    font-size:5.2cqw;
+    font-weight:800;
+    color:var(--cream);
+    margin-bottom:2.5cqw;
+    text-align:center;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    letter-spacing: -0.02em;
+  }
+  
+  .footer-row{
+    display:flex;
+    align-items:center;
+    gap:2.5cqw;
+    font-size:3.2cqw;
+    color:var(--cream-dim);
+    padding:1.2cqw 0;
+    transition: color 0.2s ease;
+  }
+  
+  .footer-row:hover {
+    color: var(--gold);
+  }
+  
+  .footer-row svg{
+    width:5.5cqw;
+    height:5.5cqw;
+    flex:none;
+    color:var(--ember);
+    filter: drop-shadow(0 2px 4px rgba(234,90,27,0.2));
+  }
+  
+  .footer-row .at{
+    font-family:'Work Sans',sans-serif;
+    font-weight:800;
+    font-size:3.8cqw;
+    color:var(--ember);
+    width:5.5cqw;
+    text-align:center;
+    flex:none;
+  }
+  
+  /* Decorative elements */
+  .banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(240,169,59,0.06), transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(234,90,27,0.06), transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(139,111,71,0.05), transparent 60%);
+    pointer-events: none;
+    animation: rotate-slow 40s linear infinite;
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">
+  <div class="stripe-top"></div>
+
+  <!-- reusable icons -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="icon-skewer" viewBox="0 0 100 24">
+        <line x1="2" y1="12" x2="98" y2="12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <rect x="16" y="4" width="14" height="16" rx="5" fill="var(--ember)"/>
+        <rect x="34" y="3" width="15" height="18" rx="5.5" fill="var(--gold)"/>
+        <rect x="53" y="4" width="14" height="16" rx="5" fill="var(--ember)"/>
+        <rect x="71" y="3" width="13" height="18" rx="5.5" fill="var(--gold)"/>
+        <line x1="20" y1="8" x2="26" y2="16" stroke="var(--chili)" stroke-width="1.4" opacity="0.6"/>
+        <line x1="57" y1="8" x2="63" y2="16" stroke="var(--chili)" stroke-width="1.4" opacity="0.6"/>
+      </symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24">
+        <path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+        <circle cx="12" cy="10" r="2.6" fill="currentColor"/>
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path d="M6.5 3h3l1.5 4.5-2 1.8a13 13 0 0 0 6 6l1.8-2L21 15v3c0 1-1 2-2.2 1.9C10.8 19.2 4.8 13.2 4 5.2 3.9 4 4.9 3 6 3z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M12 7v5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="grate"></div>
+
+    <div class="eyebrow-line">
+      <svg viewBox="0 0 100 24" style="color:var(--gold)"><use href="#icon-skewer"/></svg>
+      gerai satay bakar
+    </div>
+
+    <h1 class="wordmark">
+      <span class="line1">SATEY</span>
+      <span class="line2">BOY</span>
+    </h1>
+
+    <svg class="swoosh" viewBox="0 0 300 24" fill="none">
+      <path d="M4 18 C 80 2, 220 2, 296 16" stroke="var(--ember)" stroke-width="5" stroke-linecap="round"/>
+    </svg>
+
+    <!-- Satay illustration -->
+    <div class="dish-wrap">
+      <img src="satay.jpg" alt="Satay Plate" style="width:100%;display:block;">
+    </div>
+
+    <p class="tagline">Sedap sampai lupa kira tusuk.</p>
+  </section>
+
+  <!-- PROMO BADGE -->
+  <div class="badge-row">
+    <div class="badge">
+      <svg viewBox="0 0 200 200">
+        <polygon points="100.0,4.0 118.1,32.4 148.0,16.9 149.5,50.5 183.1,52.0 167.6,81.9 196.0,100.0 167.6,118.1 183.1,148.0 149.5,149.5 148.0,183.1 118.1,167.6 100.0,196.0 81.9,167.6 52.0,183.1 50.5,149.5 16.9,148.0 32.4,118.1 4.0,100.0 32.4,81.9 16.9,52.0 50.5,50.5 52.0,16.9 81.9,32.4" fill="var(--gold)"/>
+      </svg>
+    </div>
+    <div class="badge-text">
+      <span class="b-eyebrow">mula</span>
+      <span class="b-price placeholder">RM_.__</span>
+      <span class="b-sub">/ 10 tusuk</span>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <section class="menu">
+    <div class="menu-heading">
+      <svg viewBox="0 0 100 24" style="color:var(--ember)"><use href="#icon-skewer"/></svg>
+      Menu popular
+      <svg viewBox="0 0 100 24" style="color:var(--ember);transform:scaleX(-1)"><use href="#icon-skewer"/></svg>
+    </div>
+    <div class="menu-list">
+      <div class="menu-item">
+        <span class="menu-item-name"><svg viewBox="0 0 100 24"><use href="#icon-skewer"/></svg>Satay Ayam</span>
+        <span class="menu-item-price placeholder">RM1.00</span>
+      </div>
+      <div class="menu-item">
+        <span class="menu-item-name"><svg viewBox="0 0 100 24"><use href="#icon-skewer"/></svg>Satay Daging</span>
+        <span class="menu-item-price placeholder">RM1.20</span>
+      </div>
+      <div class="menu-item">
+        <span class="menu-item-name"><svg viewBox="0 0 100 24"><use href="#icon-skewer"/></svg>Lokceng</span>
+        <span class="menu-item-price placeholder">RM1.00</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <section class="footer">
+    <div class="footer-name placeholder">[SATEY BOY / Lokasi Anda]</div>
+    <div class="footer-row"><svg><use href="#icon-pin"/></svg><span class="placeholder">[Alamat penuh gerai anda]</span></div>
+    <div class="footer-row"><svg><use href="#icon-phone"/></svg><span class="placeholder">[0139202140/ WhatsApp]</span></div>
+    <div class="footer-row"><span class="at">@</span><span class="placeholder">[handle_instagram_anda]</span></div>
+    <div class="footer-row"><svg><use href="#icon-clock"/></svg><span class="placeholder">[Waktu operasi, cth: 5ptg–11mlm]</span></div>
+  </section>
+
+  <div class="stripe-bottom"></div>
+</div>
+
+</body>
+</html>
